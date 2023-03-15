@@ -105,14 +105,14 @@ function Operaciones(){
             Operaciones();
             break;
         case '3':
-            alert('Por ahora no hay nuevos lanzamiento ¡les mantendremos al tanto de futuras noticas!');
+            alert('Por ahora no hay nuevos lanzamiento ¡les mantendremos al tanto de futuras noticas!\nPulsa ENTER para regresar');
             Operaciones();
             break;
         case 'n':
             alert('¡Esperamos que regreses pronto!');
             break;
         default:
-            alert('Esa opcion no existe, ingresa una valida.');
+            alert('Esa opcion no existe, ingresa una valida.\nPulsa ENTER para regresar');
             Operaciones();
             break;
     }
