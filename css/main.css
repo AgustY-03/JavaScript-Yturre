@@ -1,0 +1,170 @@
+nav {
+  width: 100%;
+  z-index: 2;
+}
+
+.navbar {
+  position: fixed;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar-nav li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+footer div a {
+  color: white;
+  text-decoration: underline;
+}
+footer a:hover {
+  color: rgb(185, 182, 182);
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(32, 31, 31);
+  color: white;
+  text-align: center;
+}
+.footer p {
+  margin-bottom: 0px;
+}
+
+.miniFooter {
+  margin-left: 10px;
+}
+
+.fondoProductos aside {
+  border-radius: 5px;
+  background-color: white;
+  width: 15%;
+  height: 100%;
+  margin-right: 170px;
+  position: relative;
+  left: 50px;
+  padding: 10px;
+  padding-top: 20px;
+}
+.fondoProductos div .limite {
+  margin-left: 0px;
+}
+
+.buscador {
+  border-radius: 10px;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.384);
+  padding: 3px;
+}
+
+.container {
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+aside p {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.fondoInicio, .fondoProductos {
+  height: auto;
+  width: 100%;
+  background-color: rgb(219, 206, 189);
+}
+
+.fondoProductos {
+  padding-top: 100px;
+  padding-bottom: 75px;
+}
+
+.carousel {
+  padding-top: 500px;
+}
+
+.panel {
+  width: 300px;
+  height: 400px;
+  color: white;
+}
+
+main .container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.limite {
+  width: 100%;
+  margin-left: 140px;
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.col-xl-3, .col-lg-4, .col-md-6, .col-sm-12, .col-xs-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+div .panel {
+  margin-right: 0px;
+  margin-bottom: 140px;
+}
+
+.mangaTitulo {
+  background-color: rgb(228, 223, 223);
+}
+
+.estiloTitulo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.title-container {
+  clear: both;
+  text-align: center;
+}
+
+.m-top {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.title-container:before, .title-container:after {
+  display: table;
+  content: " ";
+}
+
+.title:after {
+  margin-left: 10px;
+}
+
+.title:before {
+  border-bottom: 1px solid #7D7D7D;
+  content: "";
+  display: block;
+  position: relative;
+  margin-left: 90px;
+  width: 38%;
+  top: 21px;
+}
+
+.title:after {
+  border-bottom: 1px solid #7D7D7D;
+  content: "";
+  display: block;
+  position: relative;
+  margin-left: 57%;
+  width: 38%;
+  top: -18px;
+}
+
+main div a {
+  text-decoration: none;
+}/*# sourceMappingURL=main.css.map */

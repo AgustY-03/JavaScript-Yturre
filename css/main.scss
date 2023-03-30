@@ -1,0 +1,114 @@
+// Imports
+
+@import "scss/header.scss";
+@import "scss/footer.scss";
+@import "scss/productos";
+
+// Main - CSS
+
+.fondoInicio{
+    height: auto;
+    width: 100%;
+    background-color: rgb(219, 206, 189);
+}
+
+.fondoProductos{
+    @extend .fondoInicio;
+
+    padding-top: 100px;
+    padding-bottom: 75px;
+}
+
+.carousel{
+    padding-top: 500px;
+}
+
+.panel{
+    width: 300px;
+    height: 400px;
+    color: white;
+}
+
+main{
+    & .container-fluid{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.limite{
+    width: 100%;
+    margin-left: 140px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.col-xl-3, .col-lg-4, .col-md-6, .col-sm-12, .col-xs-12{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+div{
+    & .panel{
+        margin-right: 0px;
+        margin-bottom: 140px;
+    }
+}
+
+.mangaTitulo{
+    background-color: rgb(228, 223, 223);
+}
+
+.estiloTitulo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+.title-container {
+    clear: both;
+    text-align: center;
+}
+
+.m-top {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.title-container:before, .title-container:after{
+    display: table;
+    content: " ";
+}
+
+.title:after{
+    margin-left: 10px;
+}
+
+.title:before{
+    border-bottom: 1px solid #7D7D7D;
+    content: "";
+    display: block;
+    position: relative;
+    margin-left: 90px;
+    width: 38%;
+    top: 21px;
+}
+
+.title:after{
+    border-bottom: 1px solid #7D7D7D;
+    content: "";
+    display: block;
+    position: relative;
+    margin-left: 57%;
+    width: 38%;
+    top: -18px;
+}
+
+main{
+    & div{
+        & a{
+            text-decoration: none;
+        }
+    }
+}

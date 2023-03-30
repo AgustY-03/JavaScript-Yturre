@@ -1,0 +1,30 @@
+footer{
+  & div{
+    & a{
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  & a:hover{
+    color: rgb(185, 182, 182);
+  }
+}
+
+.footer {
+  position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(32, 31, 31);
+    color: white;
+    text-align: center;
+
+      & p{
+        margin-bottom: 0px;
+      }
+}
+
+.miniFooter{
+  margin-left: 10px;
+}
