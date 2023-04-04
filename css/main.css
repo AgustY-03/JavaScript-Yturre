@@ -47,9 +47,9 @@ footer a:hover {
   height: 100%;
   margin-right: 170px;
   position: relative;
-  left: 50px;
-  padding: 10px;
-  padding-top: 20px;
+  left: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 .fondoProductos div .limite {
   margin-left: 0px;
@@ -63,7 +63,7 @@ footer a:hover {
 }
 
 .container {
-  padding: 0px;
+  padding: 5px;
   margin-bottom: 5px;
 }
 
@@ -72,19 +72,54 @@ aside p {
   margin-bottom: 5px;
 }
 
+.col-xl-1 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.tituloAside {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgb(179, 122, 231);
+  color: white;
+  width: 100%;
+  padding: 5px;
+}
+
+.opcionAside {
+  padding-left: 10px;
+}
+
+.pagination {
+  position: relative;
+  left: -25px;
+}
+
+.contacto {
+  background-color: lightgray;
+  height: 94.9vh;
+  width: 100%;
+}
+
+main .card {
+  top: 13%;
+  left: 35%;
+}
+
+.mb-4 {
+  background-color: white;
+}
+
 .fondoInicio, .fondoProductos {
   height: auto;
   width: 100%;
   background-color: rgb(219, 206, 189);
+  padding-right: 90px;
+  padding-left: 90px;
 }
 
 .fondoProductos {
   padding-top: 100px;
   padding-bottom: 75px;
-}
-
-.carousel {
-  padding-top: 500px;
 }
 
 .panel {
@@ -93,6 +128,9 @@ aside p {
   color: white;
 }
 
+main {
+  padding-top: 100px;
+}
 main .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
@@ -100,7 +138,7 @@ main .container-fluid {
 
 .limite {
   width: 100%;
-  margin-left: 140px;
+  margin-left: 67px;
   margin-right: 0px;
   padding-right: 0px;
   padding-left: 0px;
