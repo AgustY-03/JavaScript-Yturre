@@ -222,43 +222,74 @@ const v_filtrado = [];
 let paneles = document.getElementById('novedades');
 
 function panelDeNovedades(){
-    for (const novedad of novedades){
+    for(const novedad of novedades){
         paneles.innerHTML += `
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div id="${novedad.id}" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <div class="shadow panel">
-                <a href="pages/productos/${novedad.enlace}.html">
+                <a>
                     <img src="${novedad.portada}" alt="manga${novedad.id}" class="img-fluid">
-                    <p class="mangaTitulo estiloTitulo shadow">${novedad.manga} ${novedad.num}</p>
+                    <div class="mangaTitulo shadow">
+                        <p class="estiloTitulo">${novedad.manga} ${novedad.num}</p>
+                        <button id="btn${novedad.id}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Ver mas
+                        </button>
+                    </div>
                 </a>
             </div>
         </div>
         `;
     }
+
+    // EVENTO
+    novedades.forEach((novedad2) => 
+    document.getElementById(`btn${novedad2.id}`).addEventListener('click', () => mostrarModalPreview(novedad2))
+    );
 }
 
-panelDeNovedades();
+function mostrarModalPreview(producto){
+    console.log(producto.id);
 
-function ventaDeProductos(){
-    while(venta < novedades.length){
-            const mangaVenta = document.querySelector('#prod'+(venta + 1));
-                mangaVenta.innerHTML =`<img src="../../img/portada/op-37.webp" alt="manga" class="imginfo shadow">
-                <h2 class="titleinfo">${novedades[venta].manga}</h2>
-                <p class="precio">$${novedades[venta].precio}</p>
+    const encontrado = novedades.find( p=> p.id == parseInt(producto.id));
+    const ModalPreview = document.createElement('div');
+    ModalPreview.innerHTML = `
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">${encontrado.manga}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <img src="${encontrado.portada}" alt="manga" class="imginfo shadow">
+                <h2 class="titleinfo">${encontrado.manga}</h2>
+                <p class="precio">$${encontrado.precio}</p>
                 <div class="demoinfo">
                   <h4>Demografia:</h4>
-                  <p class="center demo">${novedades[venta].demografia}</p>
+                  <p class="center demo">${encontrado.demografia}</p>
                 </div>
                 <div class="editoinfo">
                   <h4>Editorial:</h4>
-                  <p class="center demo">${novedades[venta].editorial}</p>
+                  <p class="center demo">${encontrado.editorial}</p>
                 </div>
                 <button type="button" class="btn btn-outline-success carrito"> 🛒 AGREGAR AL CARRITO</button>
-                `;
-        venta++;
-    }
+                <p class="miniinfo">
+                  • Tomo de aproximadamente 200 páginas.<br>• Incluye desplegable a color.<br>• Formato tankoubon con sobrecubierta.</p>
+                <p class="infoinfo">One Piece relata las aventuras de Monkey D. Luffy, un joven que, inspirado en Shanks, un pirata que le salvó la vida, desea convertirse en el Rey de los Piratas y encontrar el tesoro conocido como One Piece, que pertenecía a Gol D. Roger, quien antes de ser ejecutado, hace 24 años, contó al mundo sobre la existencia de su tesoro.</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    `;
+
+    document.body.appendChild(ModalPreview);
 }
 
-ventaDeProductos();
+panelDeNovedades();
 
 // Pagina.
 
