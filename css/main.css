@@ -1,3 +1,4 @@
+@charset "UTF-8";
 nav {
   width: 100%;
   z-index: 2;
@@ -109,7 +110,148 @@ main .card {
   background-color: white;
 }
 
-.fondoInicio, .fondoProductos {
+.center {
+  position: relative;
+  text-align: center;
+}
+
+.cartel {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.cartel:hover {
+  height: auto;
+  width: 1500px;
+}
+
+.cartel:after {
+  content: "▼";
+  display: block;
+  font-size: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.cartel:hover:after {
+  opacity: 1;
+}
+
+.cartel .contenido-adicional {
+  opacity: 0;
+  transition: opacity 0s ease;
+}
+
+.cartel:hover .contenido-adicional {
+  opacity: 1;
+}
+
+.space {
+  position: sticky;
+  padding-top: 50px;
+}
+
+.aviso {
+  color: #817d7d;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+}
+
+.imginfo {
+  width: 400px;
+  position: absolute;
+  left: 350px;
+}
+
+.titleinfo {
+  width: 55%;
+  position: absolute;
+  left: 800px;
+}
+
+.infoinfo {
+  width: 50%;
+  position: absolute;
+  left: 800px;
+  top: 570px;
+  padding-bottom: 50px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.info2info {
+  width: 50%;
+  position: absolute;
+  left: 800px;
+  top: 630px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.precio {
+  width: 10%;
+  position: absolute;
+  left: 800px;
+  top: 190px;
+  font-size: 40px;
+}
+
+.demoinfo {
+  width: 6.5%;
+  position: absolute;
+  left: 800px;
+  top: 280px;
+}
+
+.editoinfo {
+  width: 5%;
+  position: absolute;
+  left: 1000px;
+  top: 280px;
+}
+
+.demo {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carrito {
+  width: 20%;
+  position: absolute;
+  left: 800px;
+  top: 390px;
+}
+
+.miniinfo {
+  width: 30%;
+  position: absolute;
+  left: 800px;
+  top: 470px;
+  color: rgb(40, 40, 134);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #a09999;
+  margin: 20px 0;
+}
+
+.final {
+  margin-top: 695px;
+}
+
+.fondoInicio, .fondoInfo, .fondoPLanzamientos, .fondoOfertas, .fondoProductos {
   height: auto;
   width: 100%;
   background-color: rgb(219, 206, 189);
@@ -120,6 +262,15 @@ main .card {
 .fondoProductos {
   padding-top: 100px;
   padding-bottom: 75px;
+}
+
+.fondoOfertas {
+  height: 94.9vh;
+}
+
+.fondoInfo {
+  background-color: rgb(250, 247, 247);
+  height: 94.9vh;
 }
 
 .panel {

@@ -4,6 +4,8 @@
 @import "scss/footer.scss";
 @import "scss/productos";
 @import "scss/reporte&contacto";
+@import "scss/ofertas";
+@import "scss/info";
 
 // Main - CSS
 
@@ -21,6 +23,21 @@
 
     padding-top: 100px;
     padding-bottom: 75px;
+}
+
+.fondoOfertas{
+    @extend .fondoInicio;
+    height: 94.9vh;
+}
+
+.fondoPLanzamientos{
+    @extend .fondoInicio;
+}
+
+.fondoInfo{
+    @extend .fondoInicio;
+    background-color: rgb(250, 247, 247);
+    height: 94.9vh;
 }
 
 .panel{
@@ -114,3 +131,4 @@ main{
         }
     }
 }
+

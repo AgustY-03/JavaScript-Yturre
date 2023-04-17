@@ -1,0 +1,84 @@
+.imginfo{
+    width: 400px;
+
+    position: absolute;
+    left: 350px;
+    
+}
+
+.titleinfo{
+    width: 55%;
+    position: absolute;
+    left: 800px;
+}
+
+.infoinfo{
+    width: 50%;
+    position: absolute;
+    left: 800px;
+    top: 570px;
+    padding-bottom: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.info2info{
+    width: 50%;
+    position: absolute;
+    left: 800px;
+    top: 630px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.precio{
+    width: 10%;
+    position: absolute;
+    left: 800px;
+    top: 190px;
+    font-size: 40px;
+
+}
+
+.demoinfo{
+    width: 6.5%;
+    position: absolute;
+    left: 800px;
+    top: 280px;
+}
+
+.editoinfo{
+    width: 5%;
+    position: absolute;
+    left: 1000px;
+    top: 280px;
+}
+
+.demo{
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.carrito{
+    width: 20%;
+    position: absolute;
+    left: 800px;
+    top: 390px;
+}
+
+.miniinfo{
+    width: 30%;
+    position: absolute;
+    left: 800px;
+    top: 470px;
+    color: rgb(40, 40, 134);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #a09999;
+    margin: 20px 0;
+  }
+
+  .final{
+    margin-top: 695px;
+  }

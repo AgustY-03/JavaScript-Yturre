@@ -12,28 +12,259 @@ let operacionOpcion;
 let carritoTotal = 0;
 let total = 0;
 let mensaje;
-let pagoCarrito;;
+let pagoCarrito;
+
+// 3RA PREENTREGA
+
+let venta=0;
+
 // Vectores de objetos
 
-const productos = [{id: 1, manga: 'SUPER DRAGON BALL HEROES: DARK DEMON REALM MISSION!', num: 01, editorial: 'IVREA', demografia: 'SHONEN', precio: 1800},
-                   {id: 2, manga: 'ONE PIECE', num: 37, editorial: 'IVREA', demografia: 'SHONEN', precio: 1800},
-                   {id: 3, manga: 'KAIJU N8', num: 03, editorial: 'IVREA', demografia: 'SHONEN', precio: 1800},
-                   {id: 4, manga: 'RANKING OF KINGS', num: 04, editorial: 'IVREA', demografia: 'SHONEN', precio: 2000},
-                   {id: 5, manga: 'WE NEVER LEARN', num: 18, editorial: 'IVREA', demografia: 'SHONEN', precio: 1800},
-                   {id: 6, manga: 'BLACK PARADOX', num: null, editorial: 'IVREA', demografia: 'SEINEN', precio: 3900},
-                   {id: 7, manga: 'BLACK CLOVER', num: 23, editorial: 'IVREA', demografia: 'SHONEN', precio: 1800},
-                   {id: 8, manga: 'SAINT SEIYA: NEXT DIMENSION (NUEVA EDICION)', num: 12, editorial: 'IVREA', demografia: 'SHONEN', precio: 3500},
-                   {id: 9, manga: 'MUSHOKU TENSEI', num: 05, editorial: 'PANINI MANGA', demografia: 'SEINEN', precio: 2200},
-                   {id: 10, manga: 'WIND BREAKER', num: 02, editorial: 'PANINI MANGA', demografia: 'SHONEN', precio: 2100},
-                   {id: 11, manga: 'MUSHISHI', num: 01, editorial: 'PANINI MANGA', demografia: 'SEINEN', precio: 2800},
-                   {id: 12, manga: 'PERFECT WORLD', num: 05, editorial: 'PANINI MANGA', demografia: 'JOSEI', precio: 2100}];
+const novedades = [{id: 1, 
+                    manga: 'SUPER DRAGON BALL HEROES: DARK DEMON REALM MISSION!', 
+                    portada: 'img/portada/sdbh-1.webp', 
+                    num: 01, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'SDBH.DDRM01' },
+                   {id: 2, 
+                    manga: 'ONE PIECE',
+                    portada: 'img/portada/op-37.webp', 
+                    num: 37, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'OP.37'},
+                   {id: 3, 
+                    manga: 'KAIJU N8',
+                    portada: 'img/portada/kaiju8-3.webp',  
+                    num: 03, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'KN8.03'},
+                   {id: 4, 
+                    manga: 'RANKING OF KINGS',
+                    portada: 'img/portada/rankingOfKings-4.webp',  
+                    num: 04, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 2000,
+                    enlace: 'ROK.04'},
+                   {id: 5, 
+                    manga: 'WE NEVER LEARN',
+                    portada: 'img/portada/weNeverLearn-18.webp',  
+                    num: 18, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'WNL.18'},
+                   {id: 6, 
+                    manga: 'BLACK PARADOX',
+                    portada: 'img/portada/blackParadox.webp',  
+                    num: " ", 
+                    editorial: 'IVREA', 
+                    demografia: 'SEINEN', 
+                    precio: 3900,
+                    enlace: 'BP'},
+                   {id: 7, 
+                    manga: 'BLACK CLOVER',
+                    portada: 'img/portada/blackClover-23.webp',  
+                    num: 23, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'BC.23'},
+                   {id: 8, 
+                    manga: 'SAINT SEIYA: NEXT DIMENSION (NUEVA EDICION)',
+                    portada: 'img/portada/saintSeiya-12.webp',  
+                    num: 12, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 3500,
+                    enlace: 'SSND.12'},
+                   {id: 9, 
+                    manga: 'MUSHOKU TENSEI',
+                    portada: 'img/portada/mushokuTensei-5.jpeg',  
+                    num: 05, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'SEINEN', 
+                    precio: 2200,
+                    enlace: 'MT.05'},
+                   {id: 10, 
+                    manga: 'WIND BREAKER',
+                    portada: 'img/portada/windBreaker-2.jpeg',  
+                    num: 02, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'SHONEN', 
+                    precio: 2100,
+                    enlace: 'WB.02'},
+                   {id: 11, 
+                    manga: 'MUSHISHI',
+                    portada: 'img/portada/mushishi-1.jpeg',  
+                    num: 01, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'SEINEN', 
+                    precio: 2800,
+                    enlace: 'MSS.01'},
+                   {id: 12, 
+                    manga: 'PERFECT WORLD',
+                    portada: 'img/portada/perfectWorld-5.webp',  
+                    num: 05, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'JOSEI', 
+                    precio: 2100,
+                    enlace: 'PW.05'}
+                   ];
+
+const productos = [{id: 1, 
+                    manga: 'SUPER DRAGON BALL HEROES: DARK DEMON REALM MISSION!', 
+                    portada: 'img/portada/sdbh-1.webp', 
+                    num: 01, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'SDBH.DDRM01' },
+                   {id: 2, 
+                    manga: 'ONE PIECE',
+                    portada: 'img/portada/op-37.webp', 
+                    num: 37, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'OP.37'},
+                   {id: 3, 
+                    manga: 'KAIJU N8',
+                    portada: 'img/portada/kaiju8-3.webp',  
+                    num: 03, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'KN8.03'},
+                   {id: 4, 
+                    manga: 'RANKING OF KINGS',
+                    portada: 'img/portada/rankingOfKings-4.webp',  
+                    num: 04, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 2000,
+                    enlace: 'ROK.04'},
+                   {id: 5, 
+                    manga: 'WE NEVER LEARN',
+                    portada: 'img/portada/weNeverLearn-18.webp',  
+                    num: 18, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'WNL.18'},
+                   {id: 6, 
+                    manga: 'BLACK PARADOX',
+                    portada: 'img/portada/blackParadox.webp',  
+                    num: " ", 
+                    editorial: 'IVREA', 
+                    demografia: 'SEINEN', 
+                    precio: 3900,
+                    enlace: 'BP'},
+                   {id: 7, 
+                    manga: 'BLACK CLOVER',
+                    portada: 'img/portada/blackClover-23.webp',  
+                    num: 23, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 1800,
+                    enlace: 'BC.23'},
+                   {id: 8, 
+                    manga: 'SAINT SEIYA: NEXT DIMENSION (NUEVA EDICION)',
+                    portada: 'img/portada/saintSeiya-12.webp',  
+                    num: 12, 
+                    editorial: 'IVREA', 
+                    demografia: 'SHONEN', 
+                    precio: 3500,
+                    enlace: 'SSND.12'},
+                   {id: 9, 
+                    manga: 'MUSHOKU TENSEI',
+                    portada: 'img/portada/mushokuTensei-5.jpeg',  
+                    num: 05, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'SEINEN', 
+                    precio: 2200,
+                    enlace: 'MT.05'},
+                   {id: 10, 
+                    manga: 'WIND BREAKER',
+                    portada: 'img/portada/windBreaker-2.jpeg',  
+                    num: 02, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'SHONEN', 
+                    precio: 2100,
+                    enlace: 'WB.02'},
+                   {id: 11, 
+                    manga: 'MUSHISHI',
+                    portada: 'img/portada/mushishi-1.jpeg',  
+                    num: 01, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'SEINEN', 
+                    precio: 2800,
+                    enlace: 'MSS.01'},
+                   {id: 12, 
+                    manga: 'PERFECT WORLD',
+                    portada: 'img/portada/perfectWorld-5.webp',  
+                    num: 05, 
+                    editorial: 'PANINI MANGA', 
+                    demografia: 'JOSEI', 
+                    precio: 2100,
+                    enlace: 'PW.05'}
+                   ];
 
 const carrito = [];
 const v_filtrado = [];
 
+let paneles = document.getElementById('novedades');
+
+function panelDeNovedades(){
+    for (const novedad of novedades){
+        paneles.innerHTML += `
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="shadow panel">
+                <a href="pages/productos/${novedad.enlace}.html">
+                    <img src="${novedad.portada}" alt="manga${novedad.id}" class="img-fluid">
+                    <p class="mangaTitulo estiloTitulo shadow">${novedad.manga} ${novedad.num}</p>
+                </a>
+            </div>
+        </div>
+        `;
+    }
+}
+
+panelDeNovedades();
+
+function ventaDeProductos(){
+    while(venta < novedades.length){
+        novedades.forEach(element => {
+            const mangaVenta = document.querySelector('#prod'+(venta + 1));
+                mangaVenta.innerHTML =`<img src="../../img/portada/op-37.webp" alt="manga" class="imginfo shadow">
+                <h2 class="titleinfo">${novedades.manga}</h2>
+                <p class="precio">$${novedades.precio}</p>
+                <div class="demoinfo">
+                  <h4>Demografia:</h4>
+                  <p class="center demo">${novedades.demografia}</p>
+                </div>
+                <div class="editoinfo">
+                  <h4>Editorial:</h4>
+                  <p class="center demo">${novedades.editorial}</p>
+                </div>
+                <button type="button" class="btn btn-outline-success carrito"> 🛒 AGREGAR AL CARRITO</button>
+                `;
+        });
+        venta++;
+    }
+}
+
+ventaDeProductos();
+
 // Pagina.
 
-opcionSesion = prompt('Bienvenido a Kogarashi Store\n1-Iniciar sesión\n2-Registrarse');
+/* opcionSesion = prompt('Bienvenido a Kogarashi Store\n1-Iniciar sesión\n2-Registrarse');
 
 if(opcionSesion == '1'){
     iniciarSesion();
@@ -350,4 +581,4 @@ function agregadoDeProductos(){
         productos.push({id, manga, num, editorial, demografia, precio});
         agregar = prompt('¿Desea agregar algun producto mas?');
     }
-}
+} */
