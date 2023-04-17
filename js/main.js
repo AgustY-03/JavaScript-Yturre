@@ -240,22 +240,20 @@ panelDeNovedades();
 
 function ventaDeProductos(){
     while(venta < novedades.length){
-        novedades.forEach(element => {
             const mangaVenta = document.querySelector('#prod'+(venta + 1));
                 mangaVenta.innerHTML =`<img src="../../img/portada/op-37.webp" alt="manga" class="imginfo shadow">
-                <h2 class="titleinfo">${novedades.manga}</h2>
-                <p class="precio">$${novedades.precio}</p>
+                <h2 class="titleinfo">${novedades[venta].manga}</h2>
+                <p class="precio">$${novedades[venta].precio}</p>
                 <div class="demoinfo">
                   <h4>Demografia:</h4>
-                  <p class="center demo">${novedades.demografia}</p>
+                  <p class="center demo">${novedades[venta].demografia}</p>
                 </div>
                 <div class="editoinfo">
                   <h4>Editorial:</h4>
-                  <p class="center demo">${novedades.editorial}</p>
+                  <p class="center demo">${novedades[venta].editorial}</p>
                 </div>
                 <button type="button" class="btn btn-outline-success carrito"> 🛒 AGREGAR AL CARRITO</button>
                 `;
-        });
         venta++;
     }
 }
