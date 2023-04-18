@@ -1,22 +1,4 @@
 // Variables.
-let nombreUsuario = 'test1';
-let contraUsuario = 'test1';
-let contraVerificacion;
-let opcionSesion;
-let nombreSesion;
-let contraSesion;
-let bandSesion=1;
-let bandSesion2=1;
-let operacion;
-let operacionOpcion;
-let carritoTotal = 0;
-let total = 0;
-let mensaje;
-let pagoCarrito;
-
-// 3RA PREENTREGA
-
-let venta=0;
 
 // Vectores de objetos
 
@@ -220,92 +202,108 @@ const carrito = [];
 const v_filtrado = [];
 
 let paneles = document.getElementById('novedades');
-paneles.setAttribute('class', 'd-flex flex-wrap limite')
+paneles.setAttribute('class', 'd-flex flex-wrap')
 
-function panelDeNovedades(){
-    for(const novedad of novedades){
-        const panel = document.createElement('div');
+// Organizacion de paneles en el index
 
-        panel.innerHTML = `
-        <div id="${novedad.id}" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+function panelDeNovedades() {
+	for (const novedad of novedades) {
+		const panel = document.createElement("div");
+        panel.setAttribute('class', 'separacion')
+
+		panel.innerHTML += `
+        <div id="${novedad.id}">
             <div class="shadow panel">
-                <a>
-                    <img src="${novedad.portada}" alt="manga${novedad.id}" class="img-fluid">
-                    <div class="mangaTitulo shadow">
-                        <p class="estiloTitulo">${novedad.manga} ${novedad.num}</p>
-                        <button id="${novedad.id}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            Ver mas
-                        </button>
-                    </div>
-                </a>
+                <img src="${novedad.portada}" alt="manga${novedad.id}" class="img-fluid">
+                <div class="mangaTitulo shadow">
+                    <p class="estiloTitulo">${novedad.manga} ${novedad.num}</p>
+                    <button id="${novedad.id}" type="button" class="btn btn-primary btn-position" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Ver mas
+                    </button>
+                </div>
             </div>
         </div>
         `;
-        paneles.appendChild(panel);
-        const btnVerMas = document.getElementById(`${novedad.id}`);
-        console.log(btnVerMas);
+		paneles.appendChild(panel);
+		const btnVerMas = document.getElementById(novedad.id);
 
-        btnVerMas.addEventListener('click', mostrarModalPreview);
-    }
+		btnVerMas.addEventListener("click", mostrarModalPreview);
+	}
 
-    // EVENTO
-    /* novedades.forEach((novedad2) => 
-    document.getElementById(`btn${novedad2.id}`).addEventListener('click', () => mostrarModalPreview(novedad2))
-    ); */
 }
 
-function mostrarModalPreview(e){
-    console.log(e.target.id);
-    const id = parseInt(e.target.id);
+// Mostrar Modal en index
 
-    const prevContainer = document.querySelector('#prev-container');
+function mostrarModalPreview(e) {
+	const id = parseInt(e.target.id);
 
-    const encontrado = novedades.find( p=> p.id == id);
-    console.log(encontrado);
+	const prevContainer = document.querySelector("#prev-container");
+	prevContainer.innerHTML = "";
+	const encontrado = novedades.find((p) => p.id == id);
 
-    
-
-    const ModalPreview = document.createElement('div');
-    ModalPreview.innerHTML = `
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">${encontrado.manga}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="container-fluid">
-                <img src="${encontrado.portada}" alt="manga" class="imginfo shadow">
-                <h2 class="titleinfo">${encontrado.manga}</h2>
+	const ModalPreview = document.createElement("div");
+	ModalPreview.innerHTML = `
+    <div id="modal-container">
+        <div id="modal" class="hidden">
+            <button id="close-modal" class="btn">Cerrar</button>
+            <div id="modal-content">
+                <h2 class="titleinfo">${encontrado.manga} ${encontrado.num}</h2>
                 <p class="precio">$${encontrado.precio}</p>
+                <img src="${encontrado.portada}" alt="manga" class="imginfo shadow">
                 <div class="demoinfo">
-                  <h4>Demografia:</h4>
-                  <p class="center demo">${encontrado.demografia}</p>
+                    <h4>Demografia:</h4>
+                    <p class="center demo">${encontrado.demografia}</p>
                 </div>
                 <div class="editoinfo">
-                  <h4>Editorial:</h4>
-                  <p class="center demo">${encontrado.editorial}</p>
+                    <h4>Editorial:</h4>
+                    <p class="center demo2">${encontrado.editorial}</p>
                 </div>
-                <button type="button" class="btn btn-outline-success carrito"> 🛒 AGREGAR AL CARRITO</button>
+                <button id="car${encontrado.id}" type="button" class="btn btn-outline-success carrito"> 🛒 AGREGAR AL CARRITO</button>
                 <p class="miniinfo">
-                  • Tomo de aproximadamente 200 páginas.<br>• Incluye desplegable a color.<br>• Formato tankoubon con sobrecubierta.</p>
+                • Tomo de aproximadamente 200 páginas.<br>• Incluye desplegable a color.<br>• Formato tankoubon con sobrecubierta.
+                </p>
                 <p class="infoinfo">One Piece relata las aventuras de Monkey D. Luffy, un joven que, inspirado en Shanks, un pirata que le salvó la vida, desea convertirse en el Rey de los Piratas y encontrar el tesoro conocido como One Piece, que pertenecía a Gol D. Roger, quien antes de ser ejecutado, hace 24 años, contó al mundo sobre la existencia de su tesoro.</p>
             </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+
     `;
+
+    document.body.style.overflow = 'hidden';
+
+    // Funcion para cerrar el modal
+    const closeModal = () => {
+        ModalPreview.remove();
+        document.body.style.overflow = 'auto';
+    };
 
     prevContainer.appendChild(ModalPreview);
 
+    const cerrarModalButton = document.querySelector("#close-modal");
+    cerrarModalButton.addEventListener("click", closeModal);
+
+    // Agregado de objetos al carrito
+    const agregarAlCarritoButton = document.querySelector(`#car${encontrado.id}`);
+    agregarAlCarritoButton.addEventListener("click", () => {
+    carrito.push(encontrado);
+    console.table(carrito);
+    document.getElementById('carrito').style.display = 'block';
+    });
+
+    
 }
 
 panelDeNovedades();
+
+// Funcion save state de Carrito
+
+document.getElementById('verCarro').addEventListener('click', saveLocalCarrito);
+
+function saveLocalCarrito(){
+    localStorage.setItem('saveStateCarro', JSON.stringify(carrito));
+}
+
+
 
 // Pagina.
 
@@ -336,294 +334,4 @@ if(opcionSesion == '1'){
     Operaciones();
 }else{
     alert('La opcion ingresada no existe');
-}
-
-function iniciarSesion(){
-    nombreSesion = prompt('Ingrese el nombre de usuario:')
-    do{
-        if(bandSesion==0){
-            alert('El nombre de usuario no existe, volve a intentarlo.');
-            nombreSesion = prompt('Ingrese el nombre de usuario:')
-        }else{
-            bandSesion=0;
-        }
-    }while(nombreSesion != nombreUsuario || nombreSesion == '');
-    if(nombreSesion == nombreUsuario){
-        contraSesion = prompt('Ingresa la contraseña:');
-        do{
-            if(bandSesion2==0){
-                alert('La contraseña es incorrecta, volve a intentarlo.');
-                contraSesion = prompt('Ingresa la contraseña:')
-            }else{
-                bandSesion2=0;
-            }
-        }while(contraSesion != contraUsuario || contraSesion == '');
-        alert('¡Sesion iniciada! Bienvenido ' + nombreUsuario);
-    }
-}
-
-function Operaciones(){
-    let fin;
-    while(operacionOpcion != 'n'){
-        operacionOpcion = prompt('¿Que desea ver? (n-cerrar sesion)\n1-Ver productos\n2-Ofertas\n3-Futuros lanzamientos\n4-Carrito\n5-Agregar productos');
-        switch(operacionOpcion){
-            case '1':
-                ventaProductos();
-                mensaje='s';
-                break;
-            case '2':
-                alert('OFERTAS:\n* 2x1 en mangas B6 hasta el 20/3\n* 10% de descuento pagando con Santander\n* 3 cuotas sin intereses con American Express\nPulsa ENTER para regresar');
-                break;
-            case '3':
-                alert('Por ahora no hay nuevos lanzamiento ¡les mantendremos al tanto de futuras noticas!\nPulsa ENTER para regresar');
-                break;
-            case '4':
-                console.table(carrito);
-                alert('El total a pagar es $' + carritoTotal);
-                pagoCarrito = prompt('¿Desea realizar la compra o continuar comprando?\n1-Realizar la compra\n2-Continuar comprando');
-                if(pagoCarrito == '1'){
-                    fin = finalizarPago(carrito, carritoTotal);
-                    if(fin != 'n'){
-                        carrito.splice(0, carrito.length);
-                        carritoTotal = 0;
-                    }
-                }
-                break;
-            case '5':
-                agregadoDeProductos();
-                console.table(productos);
-                break;
-            case 'n':
-                alert('¡Esperamos que regreses pronto!');
-                break;
-            default:
-                alert('Esa opcion no existe, ingresa una valida.\nPulsa ENTER para regresar');
-                break;
-        }
-    }
-}
-
-function sumadorTotal(precio){
-    let total = 0;
-    total = total + precio;
-    return total;
-}
-
-function ventaProductos(){
-    alert('Revisar la consola.\n(ENTER para continuar)');
-    console.table(productos);
-    while(mensaje != 'n'){
-        const mangaOpcion = parseInt(prompt('¿Que manga desea comprar? o desea realizar un filtrado (0-filtrado)\n(Introducir ID)'));
-        if(mangaOpcion != 0){
-            const buscado = productos.find((manga) => manga.id === mangaOpcion); 
-        if(buscado != undefined){
-            carrito.push(buscado);
-            carritoTotal += sumadorTotal(buscado.precio);
-            alert('Llevas acumulado $' + carritoTotal);
-        }else{
-            alert('El ID ingresado es invalido\nVolve a intentarlo.');
-        }
-
-        do{
-            if(buscado != undefined){
-                mensaje = prompt('¿Desea comprar otro producto? (s-Si / n-No)');
-            }else{
-                mensaje = prompt('¿Desea comprar algun producto? (s-Si / n-No)');
-            }
-
-            if(mensaje == 's' && mensaje == 'n'){
-                alert('El valor ingresador no pertenece a ninguna de las opciones.\nVolve a intentarlo.');
-            }
-        }while(mensaje != 's' && mensaje != 'n');
-        }else{
-            let filtro = filtrado();
-            if(filtro != 3){
-                console.table(v_filtrado);
-                const mangaOpcion = parseInt(prompt('¿Que manga desea comprar?\n(Introducir ID)'));
-                const buscado = v_filtrado.find((manga) => manga.id === mangaOpcion); 
-                if(buscado != undefined){
-                    carrito.push(buscado);
-                    carritoTotal += sumadorTotal(buscado.precio);
-                    alert('Llevas acumulado $' + carritoTotal);
-                }else{
-                alert('El ID ingresado es invalido\nVolve a intentarlo.');
-                }
-                do{
-                    if(buscado != undefined){
-                        mensaje = prompt('¿Desea comprar otro producto? (s-Si / n-No)');
-                    }else{
-                        mensaje = prompt('¿Desea comprar algun producto? (s-Si / n-No)');
-                    }
-        
-                    if(mensaje == 's' && mensaje == 'n'){
-                        alert('El valor ingresador no pertenece a ninguna de las opciones.\nVolve a intentarlo.');
-                    }
-                }while(mensaje != 's' && mensaje != 'n');
-            }else{
-                ventaProductos();
-            }
-        }
-    }
-}
-
-function filtrado(){
-    let mensaje2;
-    let opcionFiltrado;
-    let i = 0;
-    while(filtrado != '3'){
-        const filtrado_ = prompt('¿Que tipo de filtrado desea realizar?\n1-Demografia\n2-Editorial\n3-Volver atras');
-        switch(filtrado_){
-            case '1':
-                while(opcionFiltrado != '5'){
-                    opcionFiltrado = prompt('Seleccione la demografia:\n1-Shonen\n2-Seinen\n3-Shoujo\n4-Josei\n5-Volver atras');
-                    switch(opcionFiltrado){
-                        case '1':
-                            const buscado2 = productos.filter((manga) => manga.demografia.includes('SHONEN'));
-                            for (i=0; i<buscado2.length;i++){
-                                v_filtrado.push(buscado2[i]);
-                            }
-                            opcionFiltrado = '5';
-                            break;
-                        case '2':
-                            const buscado3 = productos.filter((manga) => manga.demografia.includes('SEINEN')); 
-                            for (i=0; i<buscado3.length;i++){
-                                v_filtrado.push(buscado3[i]);
-                            }
-                            opcionFiltrado = '5';
-                            break;
-                        case '3':
-                            alert('Aun no tenemos manga de demografia "Shoujo" a la venta');
-                            opcionFiltrado = '5';
-                            break;
-                        case '4':
-                            const buscado4 = productos.filter((manga) => manga.demografia.includes('JOSEI'));
-                            for (i=0; i<buscado4.length;i++){
-                                v_filtrado.push(buscado4[i]);
-                            }
-                            opcionFiltrado = '5';
-                            break;
-                        case '5':
-                            break;
-                        default:
-                            alert('La opcion seleccionada no existe.\nVuelva a intentarlo.');
-                            break;
-                    }
-                }
-                break;
-            case '2':
-                while(opcionFiltrado != '3'){
-                    opcionFiltrado = prompt('Seleccione la editorial:\n1-Ivrea\n2-Panini manga\n3-Volver atras');
-                    switch(opcionFiltrado){
-                        case '1':
-                            const buscado5 = productos.filter((manga) => manga.editorial.includes('IVREA')); 
-                            for (i=0; i<buscado5.length;i++){
-                                v_filtrado.push(buscado5[i]);
-                            }
-                            opcionFiltrado = '3';
-                            break;
-                        case '2':
-                            const buscado6 = productos.filter((manga) => manga.editorial.includes('PANINI MANGA')); 
-                            for (i=0; i<buscado6.length;i++){
-                                v_filtrado.push(buscado6[i]);
-                            }
-                            opcionFiltrado = '3';
-                            break;
-                        case '3':
-                            break;
-                        default:
-                            alert('La opcion seleccionada no existe.\nVuelva a intentarlo.');
-                            break;
-                    }
-                }
-                break;
-            case '3':
-                break;
-            default:
-                alert('La opcion seleccionada no existe.\nVuelva a intentarlo.');
-                break;
-            }
-    }
-}       
-
-function finalizarPago(productos, total){
-    let metodo;
-    let DoC;
-    let tarjeta = '';
-    let codigo = '';
-    let nombreTitular = '';
-    let vencimiento = '';
-    alert('Los productos a pagar son:\n(Revisar consola)\nCon un total a pagar de $' + total);
-    console.table(productos);
-    while(metodo != 'a' && metodo != 'n'){
-        metodo = prompt('Los metodos de pago son:\na-Tarjeta de credito/debito\nb-Efectivo\nn-Volver atras');
-        switch(metodo){
-            case 'a':
-                while(DoC != 'debito' && DoC != 'credito'){
-                    DoC = prompt('Ingrese el tipo de tarjeta debito o credito.\n(Ingrese correctamente debito o credito)');
-                    if(DoC != 'debito' && DoC != 'credito'){
-                        alert('El tipo de tarjeta ingresado no es valido.');
-                    }
-                }
-                while(nombreTitular == ''){
-                    nombreTitular = prompt('Ingrese el nombre/es y apellido del titutal.');
-                    if(nombreTitular == ''){
-                        alert('Nombre y apellido invalidos');
-                    }
-                }
-                while(tarjeta == ''){
-                    tarjeta = prompt('Ingrese la tarjeta de ' + DoC);
-                    if(tarjeta == ''){
-                        alert('Numero de tarjeta invalida');
-                    }
-                }
-                while(vencimiento == ''){
-                    vencimiento = prompt('Ingrese la fecha de vencimiento.\n(Con este formato: nov-24)');
-                    if(vencimiento == ''){
-                        alert('vencimiento invalido');
-                    }
-                }
-                while(codigo == ''){
-                    codigo = prompt('Ingrese el codigo de seguridad.');
-                    if(codigo == ''){
-                        alert('Codigo invalido');
-                    }
-                }
-                alert('¡Gracias por la compra!\nLos productos le estaran llegando a la brevedad.');
-                break;
-            case 'b':
-                alert('Nuestro sistema de pago en efectivo no se encuentra en funcionamiento en estos momentos...');
-            case 'n':
-                break;
-            default:
-                alert('La opcion seleccionada no existe.');
-        }
-    }
-
-    return metodo;
-}
-
-function agregadoDeProductos(){
-    let agregar = 's';
-    while(agregar == 's'){
-        let id = parseInt(prompt('Ingresa el ID:'));
-        while((productos.length+1) > id){
-            alert('Ya existe un producto con ese ID.');
-            id = parseInt(prompt('Ingresa el ID diferente:'));
-        }
-        let manga = prompt('Ingrese el nombre del manga:\n'); 
-        let num = parseInt(prompt('Ingrese el numero del manga:'));
-        let editorial = prompt('Ingrese la editorial:');
-        while(editorial != 'IVREA' && editorial != 'PANINI MANGA'){
-            alert('No trabajamos con la editorial puesta.');
-            editorial = prompt('Ingrese la editorial diferente:');
-        }
-        let demografia = prompt('Ingrese la demografia:');
-        while(demografia != 'SHONEN' && demografia != 'SEINEN' && demografia != 'SHOUJO' && demografia != 'JOSEI'){
-            alert('La demografia puesta no existe.');
-            demografia = prompt('Ingrese la demografia difente:');
-        }
-        let precio = parseInt(prompt('Ingrese el precio:'));
-        productos.push({id, manga, num, editorial, demografia, precio});
-        agregar = prompt('¿Desea agregar algun producto mas?');
-    }
 } */

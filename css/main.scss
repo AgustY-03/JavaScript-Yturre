@@ -6,6 +6,7 @@
 @import "scss/reporte&contacto";
 @import "scss/ofertas";
 @import "scss/info";
+@import "scss/carro";
 
 // Main - CSS
 
@@ -34,10 +35,11 @@
     @extend .fondoInicio;
 }
 
-.fondoInfo{
+.fondoCarrito{
     @extend .fondoInicio;
     background-color: rgb(250, 247, 247);
     height: 94.9vh;
+    padding: 100px;
 }
 
 .panel{
@@ -136,3 +138,33 @@ main{
     position: relative;
     left: 69px;
 }
+
+.separacion{
+    position: relative;
+    margin-left: 120px;
+    margin-bottom: 50px;
+    right: 35px;
+}
+
+div{
+    & button{
+        background-color: rgb(50, 209, 50);
+        border: 2px black solid;
+        border-radius: 50px;
+    }
+}
+
+#carrito{
+    display: none;
+}
+
+.carrito-posicion{
+    padding: 15px;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    left: 1800px;
+    top: 790px;
+    float: right;
+}
+
