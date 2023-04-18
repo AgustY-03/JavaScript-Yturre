@@ -261,6 +261,13 @@ hr {
   max-width: 1300px;
 }
 
+.btn, .btn-primary {
+  position: relative;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 .fondoInicio, .fondoInfo, .fondoPLanzamientos, .fondoOfertas, .fondoProductos {
   height: auto;
   width: 100%;
@@ -366,4 +373,9 @@ div .panel {
 
 main div a {
   text-decoration: none;
+}
+
+.move {
+  position: relative;
+  left: 69px;
 }/*# sourceMappingURL=main.css.map */

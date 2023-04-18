@@ -220,17 +220,20 @@ const carrito = [];
 const v_filtrado = [];
 
 let paneles = document.getElementById('novedades');
+paneles.setAttribute('class', 'd-flex flex-wrap limite')
 
 function panelDeNovedades(){
     for(const novedad of novedades){
-        paneles.innerHTML += `
+        const panel = document.createElement('div');
+
+        panel.innerHTML = `
         <div id="${novedad.id}" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <div class="shadow panel">
                 <a>
                     <img src="${novedad.portada}" alt="manga${novedad.id}" class="img-fluid">
                     <div class="mangaTitulo shadow">
                         <p class="estiloTitulo">${novedad.manga} ${novedad.num}</p>
-                        <button id="btn${novedad.id}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button id="${novedad.id}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             Ver mas
                         </button>
                     </div>
@@ -238,18 +241,30 @@ function panelDeNovedades(){
             </div>
         </div>
         `;
+        paneles.appendChild(panel);
+        const btnVerMas = document.getElementById(`${novedad.id}`);
+        console.log(btnVerMas);
+
+        btnVerMas.addEventListener('click', mostrarModalPreview);
     }
 
     // EVENTO
-    novedades.forEach((novedad2) => 
+    /* novedades.forEach((novedad2) => 
     document.getElementById(`btn${novedad2.id}`).addEventListener('click', () => mostrarModalPreview(novedad2))
-    );
+    ); */
 }
 
-function mostrarModalPreview(producto){
-    console.log(producto.id);
+function mostrarModalPreview(e){
+    console.log(e.target.id);
+    const id = parseInt(e.target.id);
 
-    const encontrado = novedades.find( p=> p.id == parseInt(producto.id));
+    const prevContainer = document.querySelector('#prev-container');
+
+    const encontrado = novedades.find( p=> p.id == id);
+    console.log(encontrado);
+
+    
+
     const ModalPreview = document.createElement('div');
     ModalPreview.innerHTML = `
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -286,7 +301,8 @@ function mostrarModalPreview(producto){
   </div>
     `;
 
-    document.body.appendChild(ModalPreview);
+    prevContainer.appendChild(ModalPreview);
+
 }
 
 panelDeNovedades();
