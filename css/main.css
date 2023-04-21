@@ -188,16 +188,8 @@ main .card {
   width: 50%;
   position: absolute;
   left: 580px;
-  top: 520px;
+  top: 500px;
   padding-bottom: 50px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.info2info {
-  width: 50%;
-  position: absolute;
-  left: 800px;
-  top: 630px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
@@ -286,7 +278,7 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -345,7 +337,7 @@ hr {
 }
 
 #staticBackdrop {
-  z-index: 9999;
+  z-index: 1;
 }
 
 .btn-position {
@@ -354,25 +346,21 @@ hr {
   margin-bottom: 10px;
 }
 
-#modalCarro-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: none;
+.noDecoration {
+  text-decoration: none;
+  color: white;
 }
 
-#modalCarro {
+.noDecoration:hover {
+  text-decoration: none;
+  color: white;
+}
+
+#modal2 {
   position: absolute;
   width: 90%;
-  max-width: 1400px;
-  height: 780px;
+  max-width: 870px;
+  height: 550px;
   overflow-y: auto;
   background-color: #f8f8f8;
   padding: 20px;
@@ -382,12 +370,8 @@ hr {
   top: 100px;
 }
 
-.hiddenCarro {
-  display: hide;
-}
-
-#cerrar-modal {
-  position: relative;
+#close-modal2 {
+  position: absolute;
   bottom: 20px;
   right: 20px;
   background-color: transparent;
@@ -397,6 +381,117 @@ hr {
   background-color: #e71414;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.input_label {
+  font-size: 15px;
+  color: #8B8E98;
+  font-weight: 600;
+}
+
+.input_sector {
+  width: auto;
+  height: 40px;
+  padding: 0 0 0 16px;
+  border-radius: 9px;
+  outline: none;
+  background-color: #F2F2F2;
+  border: 1px solid rgba(229, 229, 229, 0);
+  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.input_sector:focus {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 2px #242424;
+  background-color: transparent;
+}
+
+.nombreModal {
+  width: 30%;
+  position: relative;
+  top: 100px;
+  left: 75px;
+}
+
+.form-width {
+  width: 30%;
+}
+
+.input_position {
+  position: relative;
+  top: 5px;
+  right: 10px;
+}
+
+.apellidoModal {
+  width: 30%;
+  position: relative;
+  top: 34px;
+  left: 325px;
+}
+
+.tarjetaModal {
+  width: 25%;
+  position: relative;
+  top: 75px;
+  left: 75px;
+}
+
+.cvvModal {
+  position: relative;
+  top: 15px;
+  left: 325px;
+  width: 10%;
+}
+
+.cvvt {
+  position: relative;
+  left: 10px;
+}
+
+.vencimientoModal {
+  position: relative;
+  left: 550px;
+  top: -49px;
+  width: 35%;
+}
+
+.mespad {
+  margin-right: 20px;
+}
+
+.aniowidth {
+  width: 20%;
+}
+
+.direccionCliente {
+  position: relative;
+  top: -10px;
+  left: 75px;
+}
+
+.CPCliente {
+  position: relative;
+  left: 255px;
+  top: -65px;
+}
+
+.localidadCliente {
+  position: relative;
+  left: 480px;
+  top: -130px;
+}
+
+.form-position {
+  position: relative;
+  top: -30px;
+  height: 400px;
+}
+
+.btnposition {
+  position: absolute;
+  top: 459px;
+  right: 90px;
 }
 
 .fondoInicio, .fondoCarrito, .fondoPLanzamientos, .fondoOfertas, .fondoProductos {
