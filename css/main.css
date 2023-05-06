@@ -644,4 +644,8 @@ div button {
   left: 1800px;
   top: 790px;
   float: right;
+}
+
+#logout {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

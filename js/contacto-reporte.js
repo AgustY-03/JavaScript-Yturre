@@ -5,12 +5,6 @@ if(usuario != null){
   document.getElementById('logout').style.display = "block"
 }
 
-
-let car = JSON.parse(localStorage.getItem('saveStateCarro'));
-if(car != null){
-    document.getElementById('carrito').style.display = 'block';
-}
-
 document.getElementById('login').addEventListener('click', iniciarSesion);
 
 function iniciarSesion(){
