@@ -34,19 +34,19 @@ finalizar.addEventListener('click', () =>{
             <div class="form-position">
               <div class="nombreModal form-width">
                 <label class="input_label" for="nombre">Nombre:</label>
-                <input type="text" id="nombreCliente" class="input_sector input_position" placeholder="Ingresa tu nombre" name="nombreCliente" required>
+                <input type="text" id="nombreCliente" class="input_sector input_position" placeholder="Ingresa tu nombre" name="nombreCliente" pattern="[a-zA-Z- ]+" minlength="3" maxlength="20" required>
               </div>
                <div class="apellidoModal form-width">
                 <label class="input_label" for="apellido">Apellido:</label>
-                <input type="text" id="apellidoCliente" class="input_sector input_position" placeholder="Ingresa tu apellido" name="apellidoCliente" required>
+                <input type="text" id="apellidoCliente" class="input_sector input_position" placeholder="Ingresa tu apellido" name="apellidoCliente" pattern="[a-zA-Z]+" minlength="3" maxlength="30" required>
               </div>
               <div class="tarjetaModal form-width">
                 <label class="input_label" for="tarjeta"> Tarjeta de debito/credito:</label>
-                <input type="number" id="tarjetaCliente" class="input_sector input_position" placeholder="EJ: 5427 8217 0217 9192" name="tarjetaCliente" required>
+                <input type="text" id="tarjetaCliente" class="input_sector input_position" placeholder="EJ: 5427 8217 0217 9192" name="tarjetaCliente" pattern="[0-9- ]+" minlength="16" maxlength="19" required>
               </div>
               <div class="cvvModal form-width">
                 <label class="input_label cvvt" for="CVV" >CVV:</label>
-                <input type="number" id="cvv" class="input_sector" class="input_sector input_position" placeholder="EJ: 512" name="cvvCliente" required>
+                <input type="text" id="cvv" class="input_sector" class="input_sector input_position" placeholder="EJ: 512" name="cvvCliente" pattern="[0-9]+" minlength="3" maxlength="4" required>
               </div>
               <div class="vencimientoModal" form-width">
                 <label class="input_label" for="fecha">Fecha de vencimiento:</label>
@@ -64,21 +64,21 @@ finalizar.addEventListener('click', () =>{
                       <option value="10">10</option>
                       <option value="11">11</option>
                       <option value="12">12</option>
-                    <input type="number" id="anio" class="input_sector aniowidth" placeholder="25" required>
+                    <input type="text" id="anio" class="input_sector aniowidth" placeholder="25"  pattern="[0-9]+" minlength="2" maxlength="2" required>
                 </div>
               </div>
               <div class="direccionCliente form-width">
                 <div class="direcCliente">
                   <label class="input_label" for="direccion">Direccion:</label>
-                  <input type="text" id="direccionCliente" class="input_sector input_position" placeholder="Av. Siempreviva 742" required>
+                  <input type="text" id="direccionCliente" class="input_sector input_position" placeholder="Av. Siempreviva 742" minlength="7" maxlength="40" required>
                 </div>
                 <div class="CPCliente">
                   <label class="input_label" for="direccion">Codigo postal:</label>
-                  <input type="text" id="cpCliente" class="input_sector input_position" placeholder="2314" required>
+                  <input type="text" id="cpCliente" class="input_sector input_position" placeholder="2314" pattern="[0-9]+" minlength="3" maxlength="4" required>
                 </div>
                 <div class="localidadCliente">
                   <label class="input_label" for="direccion">Localidad:</label>
-                  <input type="text" id="localidadCliente" class="input_sector input_position" placeholder="La Matanza" required>
+                  <input type="text" id="localidadCliente" class="input_sector input_position" placeholder="La Matanza" pattern="[a-zA-Z- ]+" minlength="3" maxlength="30" required>
                 </div>
               </div>
               <button id ="finalizar" class="btn btn-success btnposition">
@@ -139,3 +139,9 @@ function vaciarCarrito(){
     document.getElementById('total').innerHTML = "Total a pagar $:"
 }
 
+function validarAnio(){
+  let anio = getElementById('anio');
+  if(anio <= 23){
+
+  }
+}

@@ -1,0 +1,49 @@
+    [{"id": 1, 
+    "manga": "FULLMETAL ALCHEMIST -20TH ANNIVERSARY BOOK-", 
+    "portada": "../img/P-Lan/FMA20.jpg", 
+    "num": "",
+    "fecha": "MUY PRONTO"
+    },
+    {"id": 2, 
+    "manga": "BAKI: THE GRAPPLER -EDICIÓN KANZENBAN-", 
+    "portada": "../img/P-Lan/BAKI-KZ.jpg", 
+    "num": 1,
+    "fecha": "2023"
+    },
+    {"id": 3, 
+    "manga": "IRUMA-KUN EN LA ESCUELA DE DEMONIOS", 
+    "portada": "../img/P-Lan/IRUMA.jpg", 
+    "num": 1,
+    "fecha": "2023"
+    },
+    {"id": 4, 
+    "manga": "MADOKA MAGICA: WRAITH ARC", 
+    "portada": "../img/P-Lan/MADOKA.jpg", 
+    "num": 1,
+    "fecha": "MUY PRONTO"
+    },
+    {"id": 5, 
+    "manga": "DANGANRONPA 2: GOODBYE DESPAIR", 
+    "portada": "../img/P-Lan/DANGARONPA.jpg", 
+    "num": 1,
+    "fecha": "MUY PRONTO"
+    },
+    {"id": 6, 
+    "manga": "RUROUNI KENSHIN -EDICIÓN KANZENBAN-", 
+    "portada": "../img/P-Lan/RUROUNI.jpg", 
+    "num": 1,
+    "fecha": "MUY PRONTO"
+    },
+    {"id": 7, 
+    "manga": "REAL", 
+    "portada": "../img/P-Lan/REAL.jpg", 
+    "num": 1,
+    "fecha": "2023"
+    },
+    {"id": 8, 
+    "manga": "SWORD ART ONLINE: CALIBUR", 
+    "portada": "../img/P-Lan/SAO-C.jpg", 
+    "num": 1,
+    "fecha": "MAYO 2023"
+    }
+    ]
