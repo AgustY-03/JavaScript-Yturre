@@ -96,7 +96,7 @@ function renderProductos(){
             prod_panel.setAttribute('class', 'prod-separation');
     
             prod_panel.innerHTML += `
-                <div id="${productos[i].id}" class="col-xl-3">
+                <div id="${productos[i].id}">
                     <div class="shadow panel">
                         <img src="../${productos[i].portada}" alt="manga1" class="img-fluid">
                         <div class="mangaTitulo shadow">
