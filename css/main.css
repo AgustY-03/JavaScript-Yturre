@@ -97,16 +97,15 @@ aside p {
 
 .prod-separation {
   margin-bottom: 20px;
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
-.prod-button {
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-
+/* .prod-button{
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+} */
 .contacto {
   background-color: lightgray;
   height: 94.9vh;
