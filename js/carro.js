@@ -72,15 +72,15 @@ finalizar.addEventListener('click', () =>{
                 <div class="form-position">
                   <div class="nombreModal form-width">
                     <label class="input_label" for="nombre">Nombre:</label>
-                    <input type="text" id="nombreCliente" class="input_sector input_position" placeholder="Ingresa tu nombre" name="nombreCliente" pattern="[a-zA-Z- ]+" minlength="3" maxlength="20" required>
+                    <input type="text" id="nombreCliente" class="input_sector input_position" placeholder="Ingresa tu nombre" name="nombreCliente" pattern="[a-zA-Z ]+" minlength="3" maxlength="20" required>
                   </div>
                    <div class="apellidoModal form-width">
                     <label class="input_label" for="apellido">Apellido:</label>
-                    <input type="text" id="apellidoCliente" class="input_sector input_position" placeholder="Ingresa tu apellido" name="apellidoCliente" pattern="[a-zA-Z]+" minlength="3" maxlength="30" required>
+                    <input type="text" id="apellidoCliente" class="input_sector input_position" placeholder="Ingresa tu apellido" name="apellidoCliente" pattern="[a-zA-Z ]+" minlength="3" maxlength="30" required>
                   </div>
                   <div class="tarjetaModal form-width">
                     <label class="input_label" for="tarjeta"> Tarjeta de debito/credito:</label>
-                    <input type="text" id="tarjetaCliente" class="input_sector input_position" placeholder="EJ: 5427 8217 0217 9192" name="tarjetaCliente" pattern="[0-9- ]+" minlength="16" maxlength="19" required>
+                    <input type="text" id="tarjetaCliente" class="input_sector input_position" placeholder="EJ: 5427 8217 0217 9192" name="tarjetaCliente" pattern="[0-9 ]+" minlength="16" maxlength="19" required>
                   </div>
                   <div class="cvvModal form-width">
                     <label class="input_label cvvt" for="CVV" >CVV:</label>
@@ -116,7 +116,7 @@ finalizar.addEventListener('click', () =>{
                     </div>
                     <div class="localidadCliente">
                       <label class="input_label" for="direccion">Localidad:</label>
-                      <input type="text" id="localidadCliente" class="input_sector input_position" placeholder="La Matanza" pattern="[a-zA-Z- ]+" minlength="3" maxlength="30" required>
+                      <input type="text" id="localidadCliente" class="input_sector input_position" placeholder="La Matanza" pattern="[a-zA-Z ]+" minlength="3" maxlength="30" required>
                     </div>
                   </div>
                   <button id ="finalizar" class="btn btn-success btnposition">

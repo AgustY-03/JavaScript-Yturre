@@ -203,17 +203,7 @@ document.getElementById('verCarro').addEventListener('click', saveLocalCarrito);
 
 function saveLocalCarrito(){
     localStorage.setItem('saveStateCarro', JSON.stringify(carrito));
-}
-
-function filtrarProductos(){
-
-    document.getElementById('edit').addEventListener('click', filtrarEditorial);
-
-}
-
-function filtrarEditorial(){
-    
-}
+}    
 
 document.getElementById('login').addEventListener('click', iniciarSesion);
 
