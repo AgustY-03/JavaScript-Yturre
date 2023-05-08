@@ -15,10 +15,10 @@ document.getElementById('login').addEventListener('click', iniciarSesion);
 
 function iniciarSesion(){
     Swal.fire({
-        title: 'Login Form',
+        title: 'Iniciar sesion',
         html: `<input type="text" id="login" class="swal2-input" placeholder="Usuario">
         <input type="password" id="password" class="swal2-input" placeholder="Contraseña">`,
-        confirmButtonText: 'Sign in',
+        confirmButtonText: 'Ingresar',
         focusConfirm: false,
         preConfirm: () => {
           const login = Swal.getPopup().querySelector('#login').value
